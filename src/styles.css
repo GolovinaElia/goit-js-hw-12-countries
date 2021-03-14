@@ -1,6 +1,8 @@
 *,
 *::before,
 *::after {
+  margin: 0;
+  padding: 0;
   box-sizing: border-box;
 }
 
@@ -10,8 +12,20 @@ body {
   line-height: 2;
   color: #2a2a2a;
 }
-
-.modal-form {
+img {
+ width: 400px;
+ }
+.card-body{
+  display: flex;
+  justify-content: center;
+}
+.card-title {
+   margin-left: 40%;
+}
+.card-text {
+  font-weight: 600;
+}
+ .modal-form {
   display: flex;
   justify-content: center;
   padding: 15px;
