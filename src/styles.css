@@ -5,10 +5,10 @@
   padding: 0;
   box-sizing: border-box;
 }
-
 body {
   font-family: 'Open Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI',
     Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    font-weight: 600;
   line-height: 2;
   color: #2a2a2a;
 }
@@ -21,9 +21,10 @@ img {
 }
 .card-title {
    margin-left: 40%;
+   margin-bottom: 15px;
 }
-.card-text {
-  font-weight: 600;
+.card-item {
+  padding-right: 15px;
 }
  .modal-form {
   display: flex;
