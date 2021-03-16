@@ -1,15 +1,31 @@
 import './styles.css';
-import countryRef from '../src/js/fetchCountries.js';
+// import api from './fetchCountries';
+import countryCard from './templates/country-items.hbs';
+import getRefs from './js/get-refs';
 
-const _ = require('lodash');
-const inputRef = document.querySelector('#searchQuery');
-inputRef.addEventListener('input', _.debounce(onSearch, 500));
-function onSearch(event){
-    const search = event.target.value;
-//     const filteredCountries = countryRef.filter(country => {
-//         if (search === '') return true;
+const  _  =  require( 'lodash' ) ; 
+const refs = getRefs();
 
-//         return country.includes(search);
-//     })
-//     console.log(filteredCountries);
+refs.inputRef.addEventListener('input', _.debounce(onSearch, 500));
+
+const BASE_URL = 'https://restcountries.eu/rest/v2';
+
+function fetchCountries(searchQuery) {
+    return fetch(`${BASE_URL}/name/${searchQuery}`)
+        .then(response => {
+            return response.json();
+        })
+};
+
+function onSearch(event) {
+    event.preventDefault();
+    const searchQuery = event.target.value;
+    
+    fetchCountries(searchQuery) 
+        .then(renderCountry)
+        .catch(error => console.log(error))
+}
+function renderCountry(country) {
+const markup = countryCard(country);
+    refs.showCard.innerHTML = markup;
 }
