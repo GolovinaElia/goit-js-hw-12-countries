@@ -13,11 +13,6 @@ const countriesApiService = new CountriesApiService();
 
 function onSearch(event) {
     countriesApiService.query = event.target.value;
-
-     if (countriesApiService.query === '') {
-        clearInput();
-         return alert('Вы ничего не ввели!');
-    }
     
     countriesApiService.fetchCountries() 
         .then(data => {
@@ -41,6 +36,10 @@ function renderCountry(country) {
     if (country.length >= 2 && country.length <= 10) {
         markup = countryList(country);
         clearInput();
+    }
+    if (country.message === 'Not Found') {
+        clearInput();
+         return alert('There is no such country in the database, try changing your request!');
     }
     refs.showCard.innerHTML = markup;
 }
