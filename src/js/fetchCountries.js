@@ -2,8 +2,7 @@ const BASE_URL = 'https://restcountries.eu/rest/v2';
 
 export default class CountriesApiService {
     constructor() {
-        this.searchQuery = '';
-        
+        this.searchQuery = '';   
     }
     fetchCountries(searchQuery) {
         return fetch(`${BASE_URL}/name/${this.searchQuery}`)
