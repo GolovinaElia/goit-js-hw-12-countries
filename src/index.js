@@ -19,11 +19,6 @@ function onSearch(event) {
         .then(data => {
                 renderCountry(data);
             })
-        .catch((event) => {
-                error({
-                    text: 'There is no such country in the database, try changing your request!'
-                });
-            });
 }
 
 function renderCountry(country) {
